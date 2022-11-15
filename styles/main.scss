@@ -1,0 +1,12 @@
+@use "./reset.scss";
+
+*,
+*::after,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Fira Sans", sans-serif;
+}
