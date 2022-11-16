@@ -1,3 +1,19 @@
-export default function Page() {
-  return <p>hi</p>;
+"use client";
+
+import Link from "next/link";
+import React, { useEffect, useReducer } from "react";
+import RootLayout from "./layout";
+
+function Home() {
+  return (
+    <RootLayout>
+      <ul>
+        <li>
+          <Link href="/learntyping">Learn typing</Link>
+        </li>
+      </ul>
+    </RootLayout>
+  );
 }
+
+export default Home;

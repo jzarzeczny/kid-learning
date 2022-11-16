@@ -1,17 +1,20 @@
+"use client";
+
 import React, { useEffect, useReducer } from "react";
-import Layout from "./../components/Layout/Layout";
-import Letter from "./../components/Letter/Letter";
-import styles from "./index.module.scss";
+import styles from "./page.module.scss";
 import { IconArrowForwardUp } from "@tabler/icons";
+import Image from "next/image";
 import {
   LetterTrackerAction,
   LetterTrackerState,
   QuestionInterface,
-} from "./../interfaces/LetterInterfaces";
-import Image from "next/image";
+} from "../../../interfaces/LetterInterfaces";
+import RootLayout from "../../layout";
+import Letter from "../../../components/Letter/Letter";
 
 const mockedQuestions: QuestionInterface[] = [
   { id: "1", title: "kot", text: "kot", image: "/cat.jpg" },
+  { id: "2", title: "pies", text: "pies", image: "/dog.jpg" },
 ];
 
 function reducer(
@@ -91,7 +94,7 @@ function Home() {
   };
 
   return (
-    <>
+    <RootLayout>
       <div className={styles.image__container}>
         <Image
           width={400}
@@ -118,7 +121,7 @@ function Home() {
           <IconArrowForwardUp />
         </button>
       </div>
-    </>
+    </RootLayout>
   );
 }
 
