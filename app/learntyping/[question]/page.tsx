@@ -2,15 +2,15 @@
 
 import React, { useEffect, useReducer } from "react";
 import styles from "./page.module.scss";
-import { IconArrowForwardUp } from "@tabler/icons";
+import { IconChevronRight } from "@tabler/icons";
 import Image from "next/image";
 import {
   LetterTrackerAction,
   LetterTrackerState,
   QuestionInterface,
 } from "../../../interfaces/LetterInterfaces";
-import RootLayout from "../../layout";
 import Letter from "../../../components/Letter/Letter";
+import LayoutTyping from "./layout";
 
 const mockedQuestions: QuestionInterface[] = [
   { id: "1", title: "kot", text: "kot", image: "/cat.jpg" },
@@ -94,7 +94,7 @@ function Home() {
   };
 
   return (
-    <RootLayout>
+    <LayoutTyping>
       <div className={styles.image__container}>
         <Image
           width={400}
@@ -118,10 +118,10 @@ function Home() {
           ))}
         </div>
         <button className={styles.forward__button}>
-          <IconArrowForwardUp />
+          <IconChevronRight />
         </button>
       </div>
-    </RootLayout>
+    </LayoutTyping>
   );
 }
 
