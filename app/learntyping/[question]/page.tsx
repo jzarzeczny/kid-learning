@@ -12,6 +12,7 @@ import {
   useLetters,
   useLettersDispatch,
 } from "../../../store/typeLearningStore";
+import Link from "next/link";
 
 export default function Page({ params }: { params: { question: string } }) {
   const questionId = parseInt(params.question);
@@ -59,6 +60,7 @@ export default function Page({ params }: { params: { question: string } }) {
           width={400}
           height={600}
           style={{ objectFit: "cover" }}
+          priority
           alt={mockedQuestions[questionId].title}
           src={mockedQuestions[questionId].image}
         />
@@ -76,9 +78,12 @@ export default function Page({ params }: { params: { question: string } }) {
             />
           ))}
         </div>
-        <button className={styles.forward__button}>
+        <Link
+          href={`/learntyping/${questionId + 1}`}
+          className={styles.forward__button}
+        >
           <IconChevronRight />
-        </button>
+        </Link>
       </div>
     </LayoutTyping>
   );
