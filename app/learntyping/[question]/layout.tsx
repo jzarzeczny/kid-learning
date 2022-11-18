@@ -5,12 +5,5 @@ export default function LayoutTyping({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html>
-      <body>
-        <Header />
-        <main className={styles.main}>{children}</main>
-      </body>
-    </html>
-  );
+  return <section className={styles.main}>{children}</section>;
 }

@@ -6,13 +6,11 @@ import RootLayout from "./layout";
 
 function Home() {
   return (
-    <RootLayout>
-      <ul>
-        <li>
-          <Link href="/learntyping">Learn typing</Link>
-        </li>
-      </ul>
-    </RootLayout>
+    <ul>
+      <li>
+        <Link href="/learntyping">Learn typing</Link>
+      </li>
+    </ul>
   );
 }
 
