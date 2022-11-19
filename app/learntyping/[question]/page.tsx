@@ -2,22 +2,21 @@
 
 import React, { useEffect } from "react";
 import styles from "./page.module.scss";
-import { IconChevronRight } from "@tabler/icons";
 import Image from "next/image";
 
 import Letter from "../../../components/Letter/Letter";
-import LayoutTyping from "./layout";
 import { mockedQuestions } from "../../../data/typeLearningData";
 import {
   useLetters,
   useLettersDispatch,
 } from "../../../store/typeLearningStore";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Page({ params }: { params: { question: string } }) {
   const questionId = parseInt(params.question);
   const letters = useLetters();
   const lettersDispatch = useLettersDispatch();
+  const router = useRouter();
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
@@ -42,6 +41,13 @@ export default function Page({ params }: { params: { question: string } }) {
     );
     if (keyMatchLetter) {
       lettersDispatch({ type: "letterIsCorrect" });
+      if (letters.currentIndex === letters.letters.length - 1) {
+        console.log(mockedQuestions.length);
+        if (questionId + 1 === mockedQuestions.length) {
+          return router.push(`/learntyping`);
+        }
+        return router.push(`/learntyping/${questionId + 1}`);
+      }
     } else {
       lettersDispatch({ type: "letterIsIncorrect" });
     }
@@ -54,7 +60,7 @@ export default function Page({ params }: { params: { question: string } }) {
   };
 
   return (
-    <LayoutTyping>
+    <section className={styles.main}>
       <div className={styles.image__container}>
         <Image
           width={400}
@@ -78,13 +84,7 @@ export default function Page({ params }: { params: { question: string } }) {
             />
           ))}
         </div>
-        <Link
-          href={`/learntyping/${questionId + 1}`}
-          className={styles.forward__button}
-        >
-          <IconChevronRight />
-        </Link>
       </div>
-    </LayoutTyping>
+    </section>
   );
 }

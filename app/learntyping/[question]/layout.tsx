@@ -8,7 +8,7 @@ export default function LayoutTyping({
 }) {
   return (
     <TypeLearningLetterMechanismProvider>
-      <section className={styles.main}>{children}</section>;
+      {children}
     </TypeLearningLetterMechanismProvider>
   );
 }
