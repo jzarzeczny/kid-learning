@@ -1,0 +1,24 @@
+@use "../../../styles/colors.scss" as *;
+
+.cardContainer {
+  display: grid;
+  width: 100%;
+  height: 100px;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid $blue-100;
+  border-radius: 8px;
+}
+
+.cardText {
+  grid-row: 1/2;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.cardImageContainer {
+  grid-row: 2/3;
+  overflow: hidden;
+}
