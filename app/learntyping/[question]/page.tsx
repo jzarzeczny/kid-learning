@@ -37,6 +37,7 @@ export default function Page({ params }: { params: { question: string } }) {
 
   useEffect(() => {
     inputRef.current?.focus({ preventScroll: true });
+    console.log(inputRef.current);
   });
 
   const handleKeyPress = (e: KeyboardEvent) => {
@@ -59,7 +60,7 @@ export default function Page({ params }: { params: { question: string } }) {
   };
 
   const validateKey = (keyPressed: string, currentLetter: string): boolean => {
-    if (keyPressed === currentLetter) {
+    if (keyPressed.toLowerCase() === currentLetter) {
       return true;
     }
     return false;
