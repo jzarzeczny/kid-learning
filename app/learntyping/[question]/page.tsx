@@ -52,6 +52,7 @@ export default function Page({ params }: { params: { question: string } }) {
       lettersDispatch({ type: "letterIsIncorrect" });
     }
   };
+
   const validateKey = (keyPressed: string, currentLetter: string): boolean => {
     if (keyPressed === currentLetter) {
       return true;
@@ -86,10 +87,9 @@ export default function Page({ params }: { params: { question: string } }) {
       </div>
 
       <input
+        type="text"
         className={styles.mobileInput}
         id="showKeyboardOnMobile"
-        type="hidden"
-        autoFocus
       />
     </section>
   );
