@@ -1,0 +1,9 @@
+.categorySection {
+  padding: 0 1rem;
+}
+
+.categoryContainer {
+  & > * + * {
+    margin-top: 1rem;
+  }
+}

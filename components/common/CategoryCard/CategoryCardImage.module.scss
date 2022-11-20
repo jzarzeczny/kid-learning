@@ -1,0 +1,12 @@
+.cardImageContainer {
+  position: relative;
+  grid-row: 2/3;
+  overflow: hidden;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .cardImageContainer {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+}
