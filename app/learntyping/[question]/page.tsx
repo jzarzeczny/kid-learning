@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./page.module.scss";
 import Image from "next/image";
 
@@ -17,6 +17,7 @@ export default function Page({ params }: { params: { question: string } }) {
   const letters = useLetters();
   const lettersDispatch = useLettersDispatch();
   const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
@@ -33,6 +34,10 @@ export default function Page({ params }: { params: { question: string } }) {
       },
     });
   }, [lettersDispatch]);
+
+  useEffect(() => {
+    inputRef.current?.focus({ preventScroll: true });
+  });
 
   const handleKeyPress = (e: KeyboardEvent) => {
     const keyMatchLetter = validateKey(
@@ -87,6 +92,7 @@ export default function Page({ params }: { params: { question: string } }) {
       </div>
 
       <input
+        ref={inputRef}
         autoFocus
         type="text"
         className={styles.mobileInput}
