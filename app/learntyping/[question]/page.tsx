@@ -87,7 +87,8 @@ export default function Page({ params }: { params: { question: string } }) {
       </div>
 
       <input
-        type="test"
+        autoFocus
+        type="text"
         className={styles.mobileInput}
         id="showKeyboardOnMobile"
       />
