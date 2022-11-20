@@ -63,8 +63,7 @@ export default function Page({ params }: { params: { question: string } }) {
     <section className={styles.main}>
       <div className={styles.image__container}>
         <Image
-          width={400}
-          height={600}
+          fill
           style={{ objectFit: "cover" }}
           priority
           alt={stockAnimalsQuestions[questionId].title}
@@ -85,6 +84,13 @@ export default function Page({ params }: { params: { question: string } }) {
           ))}
         </div>
       </div>
+
+      <input
+        className={styles.mobileInput}
+        id="showKeyboardOnMobile"
+        type="hidden"
+        autoFocus
+      />
     </section>
   );
 }
