@@ -20,9 +20,6 @@ export default function Page({ params }: { params: { question: string } }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (inputRef) {
-      inputRef.current?.focus();
-    }
     window.addEventListener("keydown", handleKeyPress);
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
@@ -37,11 +34,6 @@ export default function Page({ params }: { params: { question: string } }) {
       },
     });
   }, [lettersDispatch]);
-
-  useEffect(() => {
-    inputRef.current?.focus({ preventScroll: true });
-    console.log(inputRef.current);
-  });
 
   const handleKeyPress = (e: KeyboardEvent) => {
     const keyMatchLetter = validateKey(
@@ -97,7 +89,7 @@ export default function Page({ params }: { params: { question: string } }) {
       <div className={styles.mobileKeyboardHandler}>
         <button
           className={styles.openKeyboard}
-          onClick={() => inputRef.current?.focus()}
+          onClick={() => inputRef.current?.focus({ preventScroll: true })}
         >
           ⌨
         </button>
