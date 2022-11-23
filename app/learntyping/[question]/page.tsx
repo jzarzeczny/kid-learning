@@ -5,7 +5,7 @@ import styles from "./page.module.scss";
 import Image from "next/image";
 
 import Letter from "../../../components/Letter/Letter";
-import { stockAnimalsQuestions } from "../../../data/typeLearningData";
+import { stockAnimals } from "../../../data/typeLearningData";
 import {
   useLetters,
   useLettersDispatch,
@@ -30,7 +30,7 @@ export default function Page({ params }: { params: { question: string } }) {
     lettersDispatch({
       type: "setLetters",
       payload: {
-        letters: stockAnimalsQuestions[questionId].text.toUpperCase().split(""),
+        letters: stockAnimals[questionId].text.toUpperCase().split(""),
       },
     });
   }, [lettersDispatch]);
@@ -43,8 +43,8 @@ export default function Page({ params }: { params: { question: string } }) {
     if (keyMatchLetter) {
       lettersDispatch({ type: "letterIsCorrect" });
       if (letters.currentIndex === letters.letters.length - 1) {
-        console.log(stockAnimalsQuestions.length);
-        if (questionId + 1 === stockAnimalsQuestions.length) {
+        console.log(stockAnimals.length);
+        if (questionId + 1 === stockAnimals.length) {
           return router.push(`/learntyping`);
         }
         return router.push(`/learntyping/${questionId + 1}`);
@@ -68,8 +68,8 @@ export default function Page({ params }: { params: { question: string } }) {
           fill
           style={{ objectFit: "cover" }}
           priority
-          alt={stockAnimalsQuestions[questionId].title}
-          src={stockAnimalsQuestions[questionId].image}
+          alt={stockAnimals[questionId].title}
+          src={stockAnimals[questionId].image}
         />
       </div>
 
