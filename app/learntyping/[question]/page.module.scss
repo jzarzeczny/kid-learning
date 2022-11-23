@@ -1,0 +1,82 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+}
+@media screen and (min-width: 768px) {
+  .main {
+    grid-template-columns: 1fr 400px auto 1fr;
+  }
+}
+
+.image__container {
+  position: relative;
+  overflow: hidden;
+  height: 40vh;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .image__container {
+    grid-column: 2/3;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+.type__interface {
+  width: 100%;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 100px;
+}
+@media screen and (min-width: 768px) {
+  .type__interface {
+    grid-column: 3/4;
+  }
+}
+
+.letters__container {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+}
+
+.mobileKeyboardHandler {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border: none;
+  outline: none;
+}
+
+.openKeyboard {
+  font-size: 80px;
+}
+
+@media screen and (min-width: 1024px) {
+  .mobileKeyboardHandler {
+    display: none;
+  }
+  .mobileInput {
+    display: none;
+  }
+}

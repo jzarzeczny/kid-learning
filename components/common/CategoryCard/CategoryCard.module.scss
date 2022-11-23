@@ -1,0 +1,38 @@
+@use "../../../styles/colors.scss" as *;
+
+.cardContainer {
+  display: grid;
+  width: 100%;
+  grid-template-rows: 50px 100px;
+  border: 1px solid $blue-100;
+  border-radius: 8px;
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  .cardContainer {
+    height: 100px;
+    max-width: 768px;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+.cardText {
+  grid-row: 1/2;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  text-align: center;
+  color: #000;
+}
+
+@media screen and (min-width: 768px) {
+  .cardText {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    font-size: 1.5rem;
+  }
+}
