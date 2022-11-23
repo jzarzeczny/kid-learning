@@ -63,6 +63,14 @@
   border: 1px solid black;
   cursor: pointer;
 }
+
+.mobileKeyboardHandler {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .mobileInput {
   width: 0;
   height: 0;
@@ -70,7 +78,14 @@
   outline: none;
 }
 
-@media screen and (min-width: 768px) {
+.openKeyboard {
+  font-size: 80px;
+}
+
+@media screen and (min-width: 1024px) {
+  .mobileKeyboardHandler {
+    display: none;
+  }
   .mobileInput {
     display: none;
   }

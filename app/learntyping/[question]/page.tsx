@@ -20,6 +20,9 @@ export default function Page({ params }: { params: { question: string } }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    if (inputRef) {
+      inputRef.current?.focus();
+    }
     window.addEventListener("keydown", handleKeyPress);
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
@@ -91,14 +94,21 @@ export default function Page({ params }: { params: { question: string } }) {
           ))}
         </div>
       </div>
-
-      <input
-        ref={inputRef}
-        autoFocus
-        type="text"
-        className={styles.mobileInput}
-        id="showKeyboardOnMobile"
-      />
+      <div className={styles.mobileKeyboardHandler}>
+        <button
+          className={styles.openKeyboard}
+          onClick={() => inputRef.current?.focus()}
+        >
+          ⌨
+        </button>
+        <input
+          ref={inputRef}
+          autoFocus
+          type="text"
+          className={styles.mobileInput}
+          id="showKeyboardOnMobile"
+        />
+      </div>
     </section>
   );
 }
