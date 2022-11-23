@@ -46,22 +46,8 @@
   align-items: center;
   justify-content: flex-start;
   gap: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 0 0.5rem;
-}
-
-.forward__button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  margin-right: 1rem;
-  align-self: center;
-  justify-self: end;
-  background-color: transparent;
-  border: 1px solid black;
-  cursor: pointer;
 }
 
 .mobileKeyboardHandler {
@@ -72,6 +58,10 @@
 }
 
 .mobileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
   width: 0;
   height: 0;
   border: none;
