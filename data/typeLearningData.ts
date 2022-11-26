@@ -46,12 +46,17 @@ export const letterLearningData: CategoryInterface[] = [
     categoryName: "Zwierzęta hodowlane",
     categoryImage: "/categories/stockAnimals.jpg",
     categoryQuestions: stockAnimals,
-    href: "learntyping/",
+    href: "learntyping/stockAnimals",
   },
   {
     categoryName: "Zwierzęta dzikie",
     categoryImage: "/categories/wildAnimals.jpg",
     categoryQuestions: wildAnimals,
-    href: "learntyping/",
+    href: "learntyping/wildAnimals",
   },
 ];
+
+export const typeLearningQuestions: { [key: string]: QuestionInterface[] } = {
+  stockAnimals: stockAnimals,
+  wildAnimals: wildAnimals,
+};

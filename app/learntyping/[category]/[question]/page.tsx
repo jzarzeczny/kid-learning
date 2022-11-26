@@ -4,15 +4,20 @@ import React, { useEffect, useRef } from "react";
 import styles from "./page.module.scss";
 import Image from "next/image";
 
-import Letter from "../../../components/Letter/Letter";
-import { stockAnimals } from "../../../data/typeLearningData";
+import Letter from "../../../../components/Letter/Letter";
+import { typeLearningQuestions } from "../../../../data/typeLearningData";
 import {
   useLetters,
   useLettersDispatch,
-} from "../../../store/typeLearningStore";
+} from "../../../../store/typeLearningStore";
 import { useRouter } from "next/navigation";
 
-export default function Page({ params }: { params: { question: string } }) {
+export default function Page({
+  params,
+}: {
+  params: { question: string; category: string };
+}) {
+  const category = params.category;
   const questionId = parseInt(params.question);
   const letters = useLetters();
   const lettersDispatch = useLettersDispatch();
@@ -30,7 +35,9 @@ export default function Page({ params }: { params: { question: string } }) {
     lettersDispatch({
       type: "setLetters",
       payload: {
-        letters: stockAnimals[questionId].text.toUpperCase().split(""),
+        letters: typeLearningQuestions[category][questionId].text
+          .toUpperCase()
+          .split(""),
       },
     });
   }, [lettersDispatch]);
@@ -43,11 +50,10 @@ export default function Page({ params }: { params: { question: string } }) {
     if (keyMatchLetter) {
       lettersDispatch({ type: "letterIsCorrect" });
       if (letters.currentIndex === letters.letters.length - 1) {
-        console.log(stockAnimals.length);
-        if (questionId + 1 === stockAnimals.length) {
+        if (questionId + 1 === typeLearningQuestions[category].length) {
           return router.push(`/learntyping`);
         }
-        return router.push(`/learntyping/${questionId + 1}`);
+        return router.push(`/learntyping/${category}/${questionId + 1}`);
       }
     } else {
       lettersDispatch({ type: "letterIsIncorrect" });
@@ -68,8 +74,8 @@ export default function Page({ params }: { params: { question: string } }) {
           fill
           style={{ objectFit: "cover" }}
           priority
-          alt={stockAnimals[questionId].title}
-          src={stockAnimals[questionId].image}
+          alt={typeLearningQuestions[category][questionId].title}
+          src={typeLearningQuestions[category][questionId].image}
         />
       </div>
 
