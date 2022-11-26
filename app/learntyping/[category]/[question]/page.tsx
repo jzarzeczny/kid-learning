@@ -4,15 +4,20 @@ import React, { useEffect, useRef } from "react";
 import styles from "./page.module.scss";
 import Image from "next/image";
 
-import Letter from "../../../components/Letter/Letter";
-import { stockAnimalsQuestions } from "../../../data/typeLearningData";
+import Letter from "../../../../components/Letter/Letter";
+import { typeLearningQuestions } from "../../../../data/typeLearningData";
 import {
   useLetters,
   useLettersDispatch,
-} from "../../../store/typeLearningStore";
+} from "../../../../store/typeLearningStore";
 import { useRouter } from "next/navigation";
 
-export default function Page({ params }: { params: { question: string } }) {
+export default function Page({
+  params,
+}: {
+  params: { question: string; category: string };
+}) {
+  const category = params.category;
   const questionId = parseInt(params.question);
   const letters = useLetters();
   const lettersDispatch = useLettersDispatch();
@@ -30,7 +35,9 @@ export default function Page({ params }: { params: { question: string } }) {
     lettersDispatch({
       type: "setLetters",
       payload: {
-        letters: stockAnimalsQuestions[questionId].text.toUpperCase().split(""),
+        letters: typeLearningQuestions[category][questionId].text
+          .toUpperCase()
+          .split(""),
       },
     });
   }, [lettersDispatch]);
@@ -43,11 +50,10 @@ export default function Page({ params }: { params: { question: string } }) {
     if (keyMatchLetter) {
       lettersDispatch({ type: "letterIsCorrect" });
       if (letters.currentIndex === letters.letters.length - 1) {
-        console.log(stockAnimalsQuestions.length);
-        if (questionId + 1 === stockAnimalsQuestions.length) {
+        if (questionId + 1 === typeLearningQuestions[category].length) {
           return router.push(`/learntyping`);
         }
-        return router.push(`/learntyping/${questionId + 1}`);
+        return router.push(`/learntyping/${category}/${questionId + 1}`);
       }
     } else {
       lettersDispatch({ type: "letterIsIncorrect" });
@@ -68,8 +74,8 @@ export default function Page({ params }: { params: { question: string } }) {
           fill
           style={{ objectFit: "cover" }}
           priority
-          alt={stockAnimalsQuestions[questionId].title}
-          src={stockAnimalsQuestions[questionId].image}
+          alt={typeLearningQuestions[category][questionId].title}
+          src={typeLearningQuestions[category][questionId].image}
         />
       </div>
 

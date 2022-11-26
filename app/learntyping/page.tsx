@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { CategoryCard } from "../../components/common/CategoryCard/CategoryCard";
 import { SectionHeader } from "../../components/common/SectionHeader/SectionHeader";
 import { letterLearningData } from "../../data/typeLearningData";
