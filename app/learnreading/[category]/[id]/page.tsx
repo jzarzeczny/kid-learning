@@ -2,8 +2,8 @@
 
 import React from "react";
 import styles from "./page.module.scss";
-import { typeLearningQuestions } from "../../../../data/typeLearningData";
-import { QuestionInterface } from "../../../../interfaces/LetterInterfaces";
+import { typeLearningQuestions } from "@data/typeLearningData";
+import { QuestionInterface } from "@interfaces/LetterInterfaces";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 

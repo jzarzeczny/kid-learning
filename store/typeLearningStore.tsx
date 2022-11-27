@@ -4,7 +4,7 @@ import { createContext, useReducer, Dispatch, useContext } from "react";
 import {
   LetterTrackerAction,
   LetterTrackerState,
-} from "../interfaces/LetterInterfaces";
+} from "@interfaces/LetterInterfaces";
 const initialState: LetterTrackerState = {
   currentIndex: 0,
   correctLetter: true,

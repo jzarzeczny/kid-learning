@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryInterface } from "../../../interfaces/CategoryInterface";
+import { CategoryInterface } from "@interfaces/CategoryInterface";
 import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { SectionHeader } from "../SectionHeader/SectionHeader";
 

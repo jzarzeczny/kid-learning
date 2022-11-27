@@ -4,12 +4,9 @@ import React, { useEffect, useRef } from "react";
 import styles from "./page.module.scss";
 import Image from "next/image";
 
-import Letter from "../../../../components/Letter/Letter";
-import { typeLearningQuestions } from "../../../../data/typeLearningData";
-import {
-  useLetters,
-  useLettersDispatch,
-} from "../../../../store/typeLearningStore";
+import Letter from "@components/Letter/Letter";
+import { typeLearningQuestions } from "@data/typeLearningData";
+import { useLetters, useLettersDispatch } from "@store/typeLearningStore";
 import { useRouter } from "next/navigation";
 
 export default function Page({
