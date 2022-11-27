@@ -1,8 +1,10 @@
 .readingContainer {
+  max-width: 1200px;
   height: calc(100vh - 48px);
   display: grid;
   grid-template-rows: 150px 1fr;
   margin-bottom: 1rem;
+  margin: 0 auto;
 }
 
 .lettersContainer {
@@ -19,6 +21,13 @@
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: 1fr;
   gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .photosContainer {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    height: 50%;
+  }
 }
 
 .letters {
