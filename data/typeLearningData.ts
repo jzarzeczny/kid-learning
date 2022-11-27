@@ -1,5 +1,5 @@
-import { CategoryInterface } from "../interfaces/CategoryInterface";
-import { QuestionInterface } from "../interfaces/LetterInterfaces";
+import { CategoryInterface } from "@interfaces/CategoryInterface";
+import { QuestionInterface } from "@interfaces/LetterInterfaces";
 
 export const stockAnimals: QuestionInterface[] = [
   { id: "1", title: "kot", text: "kot", image: "/stockAnimals/cat.jpg" },
