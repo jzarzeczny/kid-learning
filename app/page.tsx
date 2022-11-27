@@ -9,6 +9,9 @@ function Home() {
       <li>
         <Link href="/learntyping">Learn typing</Link>
       </li>
+      <li>
+        <Link href="/learnreading">Learn reading</Link>
+      </li>
     </ul>
   );
 }
