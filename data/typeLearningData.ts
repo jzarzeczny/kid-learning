@@ -12,7 +12,7 @@ export const stockAnimals: QuestionInterface[] = [
 
 export const wildAnimals: QuestionInterface[] = [
   { id: "1", title: "zebra", text: "zebra", image: "/wildAnimals/zebra.jpg" },
-  { id: "2", title: "lion", text: "lion", image: "/wildAnimals/lion.jpg" },
+  { id: "2", title: "lew", text: "lew", image: "/wildAnimals/lion.jpg" },
   { id: "3", title: "dzik", text: "dzik", image: "/wildAnimals/boar.jpg" },
   {
     id: "4",
@@ -45,14 +45,12 @@ export const letterLearningData: CategoryInterface[] = [
   {
     categoryName: "Zwierzęta hodowlane",
     categoryImage: "/categories/stockAnimals.jpg",
-    categoryQuestions: stockAnimals,
-    href: "learntyping/stockAnimals",
+    categoryId: "stockAnimals",
   },
   {
     categoryName: "Zwierzęta dzikie",
     categoryImage: "/categories/wildAnimals.jpg",
-    categoryQuestions: wildAnimals,
-    href: "learntyping/wildAnimals",
+    categoryId: "wildAnimals",
   },
 ];
 
