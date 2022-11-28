@@ -1,0 +1,30 @@
+.mobileKeyboardHandler {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border: none;
+  outline: none;
+}
+
+.openKeyboard {
+  font-size: 80px;
+}
+
+@media screen and (min-width: 1024px) {
+  .mobileKeyboardHandler {
+    display: none;
+  }
+  .mobileInput {
+    display: none;
+  }
+}

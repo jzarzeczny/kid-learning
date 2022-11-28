@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import styles from "./page.module.scss";
 import Image from "next/image";
 
@@ -8,18 +8,18 @@ import Letter from "@components/Letter/Letter";
 import { typeLearningQuestions } from "@data/typeLearningData";
 import { useLetters, useLettersDispatch } from "@store/typeLearningStore";
 import { useRouter } from "next/navigation";
+import { OpenKeyboardButton } from "@components/common/OpenKeyboard/OpenKeyboardButton";
 
 export default function Page({
   params,
 }: {
-  params: { question: string; category: string };
+  params: { questionId: string; category: string };
 }) {
   const category = params.category;
-  const questionId = parseInt(params.question);
+  const questionId = parseInt(params.questionId);
   const letters = useLetters();
   const lettersDispatch = useLettersDispatch();
   const router = useRouter();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
@@ -37,7 +37,7 @@ export default function Page({
           .split(""),
       },
     });
-  }, [lettersDispatch]);
+  }, []);
 
   const handleKeyPress = (e: KeyboardEvent) => {
     const keyMatchLetter = validateKey(
@@ -89,21 +89,7 @@ export default function Page({
           ))}
         </div>
       </div>
-      <div className={styles.mobileKeyboardHandler}>
-        <button
-          className={styles.openKeyboard}
-          onClick={() => inputRef.current?.focus({ preventScroll: true })}
-        >
-          ⌨
-        </button>
-        <input
-          ref={inputRef}
-          autoFocus
-          type="text"
-          className={styles.mobileInput}
-          id="showKeyboardOnMobile"
-        />
-      </div>
+      <OpenKeyboardButton />
     </section>
   );
 }
