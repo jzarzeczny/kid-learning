@@ -6,5 +6,5 @@ interface WordsSection {
 }
 
 export const WordsSection: React.FC<WordsSection> = ({ children }) => {
-  return <section className={styles.section}>WordsSection</section>;
+  return <section className={styles.section}>{children}</section>;
 };

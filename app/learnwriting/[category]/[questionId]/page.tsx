@@ -1,13 +1,16 @@
 "use client";
 
 import { typeLearningQuestions } from "@data/typeLearningData";
-import { useLetters, useLettersDispatch } from "@store/typeLearningStore";
+import {
+  useLettersData,
+  useLettersDataDispatch,
+} from "@store/typeLearningStore";
 import React, { useEffect } from "react";
-import styles from "./page.module.scss";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { OpenKeyboardButton } from "@components/common/OpenKeyboard/OpenKeyboardButton";
-import Letter from "@components/Letter/Letter";
+import { WordsSection } from "@components/WordsSection/WordsSection";
+import { ImageContainer } from "@components/WordsSection/ImageContainer/ImageContainer";
+import { LettersContainer } from "@components/WordsSection/LettersContainer/LettersContainer";
 
 interface LearnWritingQuestionProps {
   params: {
@@ -19,10 +22,10 @@ interface LearnWritingQuestionProps {
 const LearnWritingQuestion: React.FC<LearnWritingQuestionProps> = ({
   params,
 }) => {
-  const { category, questionId } = params;
-  const id = parseInt(questionId);
-  const letters = useLetters();
-  const lettersDispatch = useLettersDispatch();
+  const category = params.category;
+  const questionId = parseInt(params.questionId);
+  const lettersData = useLettersData();
+  const lettersDispatch = useLettersDataDispatch();
   const router = useRouter();
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const LearnWritingQuestion: React.FC<LearnWritingQuestionProps> = ({
     lettersDispatch({
       type: "setLetters",
       payload: {
-        letters: typeLearningQuestions[category][id].text
+        letters: typeLearningQuestions[category][questionId].text
           .toUpperCase()
           .split(""),
       },
@@ -46,12 +49,12 @@ const LearnWritingQuestion: React.FC<LearnWritingQuestionProps> = ({
   const handleKeyPress = (e: KeyboardEvent) => {
     const keyMatchLetter = validateKey(
       e.key,
-      letters.letters[letters.currentIndex].toLowerCase()
+      lettersData.letters[lettersData.currentIndex].toLowerCase()
     );
     if (keyMatchLetter) {
       lettersDispatch({ type: "letterIsCorrect" });
-      if (letters.currentIndex === letters.letters.length - 1) {
-        if (id + 1 === typeLearningQuestions[category].length) {
+      if (lettersData.currentIndex === lettersData.letters.length - 1) {
+        if (questionId + 1 === typeLearningQuestions[category].length) {
           return router.push(`/learnTyping`);
         }
         return router.push(`/learnTyping/${category}/${questionId + 1}`);
@@ -69,36 +72,15 @@ const LearnWritingQuestion: React.FC<LearnWritingQuestionProps> = ({
   };
 
   return (
-    <div className={styles.container}>
-      <section className={styles.imageSection}>
-        <div className={styles.imageContainer}>
-          <Image
-            fill
-            style={{ objectFit: "cover" }}
-            alt={typeLearningQuestions[category][id].title}
-            src={typeLearningQuestions[category][id].image}
-          />
-        </div>
-      </section>
-      <section>
-        <div className={styles.type__interface}>
-          <div className={styles.letters__container}>
-            {letters?.letters.map((letter: string, index: number) => (
-              <Letter
-                letter={letter}
-                key={index}
-                indexOfLetter={index}
-                currentIndex={letters.currentIndex}
-                correctLetter={letters.correctLetter}
-                style="oneLine"
-              />
-            ))}
-          </div>
-        </div>
+    <WordsSection>
+      <ImageContainer
+        imageAlt={typeLearningQuestions[category][questionId].text}
+        imageSrc={typeLearningQuestions[category][questionId].image}
+      />
+      <LettersContainer lettersData={lettersData} boxType="oneLine" />
 
-        <OpenKeyboardButton />
-      </section>
-    </div>
+      <OpenKeyboardButton />
+    </WordsSection>
   );
 };
 

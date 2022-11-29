@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# scss
+*.scss.d.ts
+
 # production
 /build
 

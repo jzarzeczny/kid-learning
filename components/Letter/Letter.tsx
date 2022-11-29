@@ -20,15 +20,15 @@ const Letter: FC<LetterProps> = ({
       className={`
       ${style === "oneLine" ? styles.oneLine : ""}
       ${styles.letter} ${
-        indexOfLetter === currentIndex ? styles.letter__current : ""
+        indexOfLetter === currentIndex ? styles.letterCurrent : ""
       }
       
       ${
         !correctLetter && indexOfLetter === currentIndex
-          ? styles.letter__error
+          ? styles.letterError
           : ""
       } 
-      ${indexOfLetter < currentIndex ? styles.letter__correct : ""}`}
+      ${indexOfLetter < currentIndex ? styles.letterCorrect : ""}`}
     >
       {letter}
     </span>
