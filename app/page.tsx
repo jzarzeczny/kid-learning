@@ -7,10 +7,13 @@ function Home() {
   return (
     <ul>
       <li>
-        <Link href="/learntyping">Learn typing</Link>
+        <Link href="/learnTyping">Learn typing</Link>
       </li>
       <li>
-        <Link href="/learnreading">Learn reading</Link>
+        <Link href="/learnReading">Learn reading</Link>
+      </li>
+      <li>
+        <Link href="/learnWriting">Learn writing</Link>
       </li>
     </ul>
   );

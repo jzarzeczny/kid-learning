@@ -7,6 +7,12 @@
   border: 1px solid black;
   font-size: 1.5rem;
 }
+
+.oneLine {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
 @media screen and (min-width: 768px) {
   .letter {
     width: 6rem;

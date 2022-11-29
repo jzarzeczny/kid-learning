@@ -7,6 +7,7 @@ import styles from "./page.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { OpenKeyboardButton } from "@components/common/OpenKeyboard/OpenKeyboardButton";
+import Letter from "@components/Letter/Letter";
 
 interface LearnWritingQuestionProps {
   params: {
@@ -51,9 +52,9 @@ const LearnWritingQuestion: React.FC<LearnWritingQuestionProps> = ({
       lettersDispatch({ type: "letterIsCorrect" });
       if (letters.currentIndex === letters.letters.length - 1) {
         if (id + 1 === typeLearningQuestions[category].length) {
-          return router.push(`/learntyping`);
+          return router.push(`/learnTyping`);
         }
-        return router.push(`/learntyping/${category}/${questionId + 1}`);
+        return router.push(`/learnTyping/${category}/${questionId + 1}`);
       }
     } else {
       lettersDispatch({ type: "letterIsIncorrect" });
@@ -80,6 +81,21 @@ const LearnWritingQuestion: React.FC<LearnWritingQuestionProps> = ({
         </div>
       </section>
       <section>
+        <div className={styles.type__interface}>
+          <div className={styles.letters__container}>
+            {letters?.letters.map((letter: string, index: number) => (
+              <Letter
+                letter={letter}
+                key={index}
+                indexOfLetter={index}
+                currentIndex={letters.currentIndex}
+                correctLetter={letters.correctLetter}
+                style="oneLine"
+              />
+            ))}
+          </div>
+        </div>
+
         <OpenKeyboardButton />
       </section>
     </div>

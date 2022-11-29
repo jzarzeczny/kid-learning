@@ -48,9 +48,9 @@ export default function Page({
       lettersDispatch({ type: "letterIsCorrect" });
       if (letters.currentIndex === letters.letters.length - 1) {
         if (questionId + 1 === typeLearningQuestions[category].length) {
-          return router.push(`/learntyping`);
+          return router.push(`/learnTyping`);
         }
-        return router.push(`/learntyping/${category}/${questionId + 1}`);
+        return router.push(`/learnTyping/${category}/${questionId + 1}`);
       }
     } else {
       lettersDispatch({ type: "letterIsIncorrect" });
@@ -85,6 +85,7 @@ export default function Page({
               indexOfLetter={index}
               currentIndex={letters.currentIndex}
               correctLetter={letters.correctLetter}
+              style="box"
             />
           ))}
         </div>
