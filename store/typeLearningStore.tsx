@@ -5,6 +5,7 @@ import {
   LetterTrackerAction,
   LetterTrackerState,
 } from "@interfaces/LetterInterfaces";
+
 const initialState: LetterTrackerState = {
   currentIndex: 0,
   correctLetter: true,
@@ -22,10 +23,10 @@ export function TypeLearningLetterMechanismProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [letters, dispatch] = useReducer(reducer, initialState);
+  const [lettersData, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <TypeLearningLetterMechanismContext.Provider value={letters}>
+    <TypeLearningLetterMechanismContext.Provider value={lettersData}>
       <TypeLearningLetterMechanismDispatchContext.Provider value={dispatch}>
         {children}
       </TypeLearningLetterMechanismDispatchContext.Provider>
@@ -33,10 +34,10 @@ export function TypeLearningLetterMechanismProvider({
   );
 }
 
-export function useLetters() {
+export function useLettersData() {
   return useContext(TypeLearningLetterMechanismContext);
 }
-export function useLettersDispatch() {
+export function useLettersDataDispatch() {
   return useContext(TypeLearningLetterMechanismDispatchContext);
 }
 

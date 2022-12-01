@@ -7,6 +7,12 @@
   border: 1px solid black;
   font-size: 1.5rem;
 }
+
+.oneLine {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
 @media screen and (min-width: 768px) {
   .letter {
     width: 6rem;
@@ -14,27 +20,27 @@
     border: 3px solid black;
     font-size: 2.5rem;
   }
-  .letter__correct {
+  .letterCorrect {
     border: 1px solid green;
   }
 
-  .letter__current {
+  .letterCurrent {
     border: 1px solid blue;
   }
 
-  .letter__error {
+  .letterError {
     border: 1px solid red;
   }
 }
 
-.letter__correct {
+.letterCorrect {
   border: 3px solid green;
 }
 
-.letter__current {
+.letterCurrent {
   border: 3px solid blue;
 }
 
-.letter__error {
+.letterError {
   border: 3px solid red;
 }

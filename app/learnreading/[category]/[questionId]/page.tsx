@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 interface LearnReadingQuestionProps {
   params: {
     category: string;
-    id: string;
+    questionId: string;
   };
 }
 
@@ -19,11 +19,11 @@ const LearnReadingQuestion: React.FC<LearnReadingQuestionProps> = ({
 }) => {
   const router = useRouter();
 
-  const { category, id } = params;
-  const questionId = parseInt(id);
+  const { category, questionId } = params;
+  const id = parseInt(questionId);
 
   const optionsToChooseFrom = getPhotos<QuestionInterface>(
-    questionId,
+    id,
     typeLearningQuestions[category]
   );
 
@@ -32,11 +32,11 @@ const LearnReadingQuestion: React.FC<LearnReadingQuestionProps> = ({
     answerTitle: string
   ) => {
     event.preventDefault();
-    if (answerTitle === typeLearningQuestions[category][questionId].title) {
-      if (questionId + 1 === typeLearningQuestions[category].length) {
+    if (answerTitle === typeLearningQuestions[category][id].title) {
+      if (id + 1 === typeLearningQuestions[category].length) {
         return router.push(`/learnreading`);
       }
-      return router.push(`/learnreading/${category}/${questionId + 1}`);
+      return router.push(`/learnreading/${category}/${id + 1}`);
     }
     event.currentTarget.classList.add(`${styles.incorrectImage}`);
   };
@@ -45,7 +45,7 @@ const LearnReadingQuestion: React.FC<LearnReadingQuestionProps> = ({
     <div className={styles.readingContainer}>
       <div className={styles.lettersContainer}>
         <h2 className={styles.letters}>
-          {typeLearningQuestions[category][questionId].title}
+          {typeLearningQuestions[category][id].title}
         </h2>
       </div>
       <div className={styles.photosContainer}>
@@ -57,7 +57,7 @@ const LearnReadingQuestion: React.FC<LearnReadingQuestionProps> = ({
           >
             <Image
               fill
-              style={{ objectFit: "cover", objectPosition: "50% 20%" }}
+              style={{ objectFit: "cover", objectPosition: "50% 50%" }}
               alt={option.title}
               src={option.image}
             />

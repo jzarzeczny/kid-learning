@@ -5,6 +5,7 @@ interface LetterProps {
   indexOfLetter: number;
   currentIndex: number;
   correctLetter: boolean;
+  style: "box" | "oneLine";
 }
 
 const Letter: FC<LetterProps> = ({
@@ -12,21 +13,26 @@ const Letter: FC<LetterProps> = ({
   indexOfLetter,
   currentIndex,
   correctLetter,
+  style,
 }) => {
   return (
     <span
-      className={`${styles.letter} ${
-        indexOfLetter === currentIndex ? styles.letter__current : ""
+      className={`
+      ${style === "oneLine" ? styles.oneLine : ""}
+      ${styles.letter} ${
+        indexOfLetter === currentIndex ? styles.letterCurrent : ""
       }
       
       ${
         !correctLetter && indexOfLetter === currentIndex
-          ? styles.letter__error
+          ? styles.letterError
           : ""
       } 
-      ${indexOfLetter < currentIndex ? styles.letter__correct : ""}`}
+      ${indexOfLetter < currentIndex ? styles.letterCorrect : ""}`}
     >
-      {letter}
+      <span>
+        {style === "oneLine" && currentIndex < indexOfLetter + 1 ? "" : letter}
+      </span>
     </span>
   );
 };

@@ -1,0 +1,23 @@
+.lettersContainer {
+  width: 100%;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 100px;
+}
+@media screen and (min-width: 768px) {
+  .lettersContainer {
+    grid-column: 3/4;
+  }
+}
+
+.lettersRow {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+}
