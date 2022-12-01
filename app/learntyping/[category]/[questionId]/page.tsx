@@ -1,70 +1,34 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { typeLearningQuestions } from "@data/typeLearningData";
 import {
   useLettersData,
   useLettersDataDispatch,
 } from "@store/typeLearningStore";
-import { useRouter } from "next/navigation";
 import { OpenKeyboardButton } from "@components/common/OpenKeyboard/OpenKeyboardButton";
 import { WordsSection } from "@components/WordsSection/WordsSection";
 import { ImageContainer } from "@components/WordsSection/ImageContainer/ImageContainer";
 import { LettersContainer } from "@components/WordsSection/LettersContainer/LettersContainer";
+import { QuestionProps } from "@interfaces/QuestionPage";
+import { useKeyHandlingHook } from "hooks/useKeyHandlingHook";
 
-export default function Page({
-  params,
-}: {
-  params: { questionId: string; category: string };
-}) {
+const PATH = "learnTyping";
+
+const LearnTypingQuestion: React.FC<QuestionProps> = ({ params }) => {
   const category = params.category;
   const questionId = parseInt(params.questionId);
   const lettersData = useLettersData();
   const lettersDispatch = useLettersDataDispatch();
-  const router = useRouter();
 
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyPress);
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
+  useKeyHandlingHook({
+    lettersDispatch: lettersDispatch,
+    data: typeLearningQuestions[category],
+    currentData: lettersData,
+    category,
+    questionId,
+    path: PATH,
   });
-
-  useEffect(() => {
-    lettersDispatch({
-      type: "setLetters",
-      payload: {
-        letters: typeLearningQuestions[category][questionId].text
-          .toUpperCase()
-          .split(""),
-      },
-    });
-  }, []);
-
-  const handleKeyPress = (e: KeyboardEvent) => {
-    const keyMatchLetter = validateKey(
-      e.key,
-      lettersData.letters[lettersData.currentIndex].toLowerCase()
-    );
-    if (keyMatchLetter) {
-      lettersDispatch({ type: "letterIsCorrect" });
-      if (lettersData.currentIndex === lettersData.letters.length - 1) {
-        if (questionId + 1 === typeLearningQuestions[category].length) {
-          return router.push(`/learnTyping`);
-        }
-        return router.push(`/learnTyping/${category}/${questionId + 1}`);
-      }
-    } else {
-      lettersDispatch({ type: "letterIsIncorrect" });
-    }
-  };
-
-  const validateKey = (keyPressed: string, currentLetter: string): boolean => {
-    if (keyPressed.toLowerCase() === currentLetter) {
-      return true;
-    }
-    return false;
-  };
 
   return (
     <WordsSection>
@@ -77,4 +41,6 @@ export default function Page({
       <OpenKeyboardButton />
     </WordsSection>
   );
-}
+};
+
+export default LearnTypingQuestion;

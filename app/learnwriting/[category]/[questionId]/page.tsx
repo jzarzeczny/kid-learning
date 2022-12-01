@@ -5,72 +5,30 @@ import {
   useLettersData,
   useLettersDataDispatch,
 } from "@store/typeLearningStore";
-import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import React from "react";
 import { OpenKeyboardButton } from "@components/common/OpenKeyboard/OpenKeyboardButton";
 import { WordsSection } from "@components/WordsSection/WordsSection";
 import { ImageContainer } from "@components/WordsSection/ImageContainer/ImageContainer";
 import { LettersContainer } from "@components/WordsSection/LettersContainer/LettersContainer";
+import { useKeyHandlingHook } from "hooks/useKeyHandlingHook";
+import { QuestionProps } from "@interfaces/QuestionPage";
 
-interface LearnWritingQuestionProps {
-  params: {
-    category: string;
-    questionId: string;
-  };
-}
+const PATH = "learnWriting";
 
-const LearnWritingQuestion: React.FC<LearnWritingQuestionProps> = ({
-  params,
-}) => {
+const LearnWritingQuestion: React.FC<QuestionProps> = ({ params }) => {
   const category = params.category;
   const questionId = parseInt(params.questionId);
   const lettersData = useLettersData();
   const lettersDispatch = useLettersDataDispatch();
-  const router = useRouter();
 
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyPress);
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
+  useKeyHandlingHook({
+    lettersDispatch: lettersDispatch,
+    data: typeLearningQuestions[category],
+    currentData: lettersData,
+    category,
+    questionId,
+    path: PATH,
   });
-
-  useEffect(() => {
-    lettersDispatch({
-      type: "setLetters",
-      payload: {
-        letters: typeLearningQuestions[category][questionId].text
-          .toUpperCase()
-          .split(""),
-      },
-    });
-  }, []);
-
-  const handleKeyPress = (e: KeyboardEvent) => {
-    const keyMatchLetter = validateKey(
-      e.key,
-      lettersData.letters[lettersData.currentIndex].toLowerCase()
-    );
-    if (keyMatchLetter) {
-      lettersDispatch({ type: "letterIsCorrect" });
-      if (lettersData.currentIndex === lettersData.letters.length - 1) {
-        if (questionId + 1 === typeLearningQuestions[category].length) {
-          return router.push(`/learnTyping`);
-        }
-        return router.push(`/learnTyping/${category}/${questionId + 1}`);
-      }
-    } else {
-      lettersDispatch({ type: "letterIsIncorrect" });
-    }
-  };
-
-  const validateKey = (keyPressed: string, currentLetter: string): boolean => {
-    if (keyPressed.toLowerCase() === currentLetter) {
-      return true;
-    }
-    return false;
-  };
-
   return (
     <WordsSection>
       <ImageContainer

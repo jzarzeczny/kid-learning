@@ -5,6 +5,7 @@ import {
   LetterTrackerAction,
   LetterTrackerState,
 } from "@interfaces/LetterInterfaces";
+
 const initialState: LetterTrackerState = {
   currentIndex: 0,
   correctLetter: true,

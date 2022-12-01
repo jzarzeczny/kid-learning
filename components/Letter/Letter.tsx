@@ -30,7 +30,9 @@ const Letter: FC<LetterProps> = ({
       } 
       ${indexOfLetter < currentIndex ? styles.letterCorrect : ""}`}
     >
-      {letter}
+      <span>
+        {style === "oneLine" && currentIndex < indexOfLetter + 1 ? "" : letter}
+      </span>
     </span>
   );
 };
