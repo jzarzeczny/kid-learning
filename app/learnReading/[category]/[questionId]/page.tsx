@@ -34,9 +34,9 @@ const LearnReadingQuestion: React.FC<LearnReadingQuestionProps> = ({
     event.preventDefault();
     if (answerTitle === typeLearningQuestions[category][id].title) {
       if (id + 1 === typeLearningQuestions[category].length) {
-        return router.push(`/learnreading`);
+        return router.push(`/learnReading`);
       }
-      return router.push(`/learnreading/${category}/${id + 1}`);
+      return router.push(`/learnReading/${category}/${id + 1}`);
     }
     event.currentTarget.classList.add(`${styles.incorrectImage}`);
   };

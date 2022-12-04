@@ -15,20 +15,29 @@ const Letter: FC<LetterProps> = ({
   correctLetter,
   style,
 }) => {
+  const isLetterOneLine = () => {
+    return style === "oneLine" ? styles.oneLine : "";
+  };
+  const isItCurrentLetter = () => {
+    return indexOfLetter === currentIndex ? styles.letterCurrent : "";
+  };
+  const wasInputIncorrect = () => {
+    return !correctLetter && indexOfLetter === currentIndex
+      ? styles.letterError
+      : "";
+  };
+  const inputWasCorrect = () => {
+    return indexOfLetter < currentIndex ? styles.letterCorrect : "";
+  };
+
   return (
     <span
       className={`
-      ${style === "oneLine" ? styles.oneLine : ""}
-      ${styles.letter} ${
-        indexOfLetter === currentIndex ? styles.letterCurrent : ""
-      }
-      
-      ${
-        !correctLetter && indexOfLetter === currentIndex
-          ? styles.letterError
-          : ""
-      } 
-      ${indexOfLetter < currentIndex ? styles.letterCorrect : ""}`}
+      ${styles.letter}
+      ${isLetterOneLine()}
+      ${isItCurrentLetter()}
+      ${wasInputIncorrect()} 
+      ${inputWasCorrect()}`}
     >
       <span>
         {style === "oneLine" && currentIndex < indexOfLetter + 1 ? "" : letter}

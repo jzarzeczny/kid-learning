@@ -14,7 +14,7 @@
 
 .oneLine {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid black;
 }
 
 @media screen and (min-width: 768px) {
@@ -24,30 +24,34 @@
     border: 2px solid black;
     font-size: 2.5rem;
   }
+  .oneLine {
+    border: none;
+    border-bottom: 5px solid black;
+  }
 }
 
 .letterCorrect {
-  border: 2px solid green;
+  border-color: green;
 }
 
 .letterCurrent {
-  border: 2px solid blue;
+  border-color: blue;
 }
 
 .letterError {
-  border: 2px solid red;
+  border-color: red;
 }
 
 @media screen and (min-width: 768px) {
   .letterCorrect {
-    border: 3px solid green;
+    border-color: green;
   }
 
   .letterCurrent {
-    border: 3px solid blue;
+    border-color: blue;
   }
 
   .letterError {
-    border: 3px solid red;
+    border-color: red;
   }
 }
