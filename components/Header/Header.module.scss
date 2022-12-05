@@ -1,6 +1,15 @@
 @use "styles/colors" as *;
 .header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: $blue-300;
-  color: $white;
+  color: $black;
   padding: 1rem;
+  background-color: transparent;
 }
