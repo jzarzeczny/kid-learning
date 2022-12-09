@@ -1,0 +1,32 @@
+@use "styles/colors.scss" as *;
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  padding-top: 120px;
+  height: 100vh;
+  width: 100%;
+  transform: translateX(150%);
+  transition: transform 0.5s ease-in-out;
+}
+
+input[type="checkbox"]:checked ~ .container {
+  transform: translate(0);
+}
+
+.list {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.listItem {
+  font-size: 1.25rem;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
