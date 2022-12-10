@@ -6,6 +6,7 @@ export default function Head() {
         content="width=device-width, initial-scale=1, user-scalable=no"
         name="viewport"
       />
+
       <link rel="icon" href="/favicon.ico" />
     </>
   );

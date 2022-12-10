@@ -1,4 +1,8 @@
+@use "styles/sizes.scss" as *;
+
 .categorySection {
+  margin-top: $header-size;
+
   padding: 0 1rem;
 }
 

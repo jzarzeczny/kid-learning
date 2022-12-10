@@ -4,8 +4,10 @@
   height: 40vh;
   width: 100%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .imageContainer {
+    height: 800px;
+
     grid-column: 2/3;
     align-self: center;
     justify-self: center;

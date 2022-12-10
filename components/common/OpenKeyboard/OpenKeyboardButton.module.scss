@@ -11,13 +11,16 @@
   left: 0;
   opacity: 0;
   width: 0;
-  height: 0;
   border: none;
   outline: none;
 }
 
 .openKeyboard {
-  font-size: 80px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 10rem;
+  line-height: 1;
 }
 
 @media screen and (min-width: 1024px) {

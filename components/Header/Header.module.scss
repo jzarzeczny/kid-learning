@@ -1,6 +1,21 @@
 @use "styles/colors" as *;
+@use "styles/sizes" as *;
 .header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-size;
   background-color: $blue-300;
-  color: $white;
-  padding: 1rem;
+  color: $black;
+  padding: 0 1rem;
+  background-color: transparent;
+}
+
+.logo {
+  font-size: 1.25rem;
 }

@@ -1,14 +1,18 @@
+@use "styles/sizes.scss" as *;
+
 .section {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: auto 1fr 1fr;
   width: 100%;
   max-width: 1920px;
-  height: 100%;
+  height: calc(100vh - $header-size);
+  margin-top: $header-size;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .section {
-    grid-template-columns: 1fr 400px auto 1fr;
+    grid-template-columns: 1fr 600px auto 1fr;
+    grid-gap: 3rem;
   }
 }

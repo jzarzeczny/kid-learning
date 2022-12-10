@@ -2,45 +2,56 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 4rem;
-  height: 4rem;
+  width: 10vw;
+  height: 10vw;
+  margin: 0.25rem 0;
   border: 1px solid black;
-  font-size: 1.5rem;
+  // font-size: clamp(1rem, 10vw, 2rem);
+  span {
+    font-size: clamp(1rem, 7vw, 3rem);
+  }
 }
 
 .oneLine {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid black;
 }
 
 @media screen and (min-width: 768px) {
   .letter {
     width: 6rem;
     height: 6rem;
-    border: 3px solid black;
+    border: 2px solid black;
     font-size: 2.5rem;
   }
-  .letterCorrect {
-    border: 1px solid green;
-  }
-
-  .letterCurrent {
-    border: 1px solid blue;
-  }
-
-  .letterError {
-    border: 1px solid red;
+  .oneLine {
+    border: none;
+    border-bottom: 5px solid black;
   }
 }
 
 .letterCorrect {
-  border: 3px solid green;
+  border-color: green;
 }
 
 .letterCurrent {
-  border: 3px solid blue;
+  border-color: blue;
 }
 
 .letterError {
-  border: 3px solid red;
+  border-color: red;
+}
+
+@media screen and (min-width: 768px) {
+  .letterCorrect {
+    border-color: green;
+  }
+
+  .letterCurrent {
+    border-color: blue;
+  }
+
+  .letterError {
+    border-color: red;
+  }
 }
