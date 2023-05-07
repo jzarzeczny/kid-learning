@@ -45,7 +45,7 @@ const LearnReadingQuestion: React.FC<LearnReadingQuestionProps> = ({
     <div className={styles.readingContainer}>
       <div className={styles.lettersContainer}>
         <h2 className={styles.letters}>
-          {typeLearningQuestions[category][id].title}
+          {typeLearningQuestions[category][id].text}
         </h2>
       </div>
       <div className={styles.photosContainer}>
