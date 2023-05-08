@@ -41,6 +41,52 @@ export const wildAnimals: QuestionInterface[] = [
   { id: "13", title: "lemur", text: "lemur", image: "/wildAnimals/lemur.jpg" },
 ];
 
+export const vehicles: QuestionInterface[] = [
+  {
+    id: "0",
+    title: "motorbike",
+    text: "motocykl",
+    image: "/vehicles/motorbike.jpg",
+  },
+  { id: "1", title: "bus", text: "autobus", image: "/vehicles/bus.jpg" },
+  {
+    id: "2",
+    title: "car",
+    text: "auto",
+    image: "/vehicles/car.jpg",
+  },
+  {
+    id: "3",
+    title: "boat",
+    text: "statek",
+    image: "/vehicles/boat.jpg",
+  },
+  {
+    id: "4",
+    title: "bicycle",
+    text: "rower",
+    image: "/vehicles/bicycle.jpg",
+  },
+  {
+    id: "5",
+    title: "helicopter",
+    text: "helikopter",
+    image: "/vehicles/helicopter.jpg",
+  },
+  {
+    id: "6",
+    title: "airplane",
+    text: "samolot",
+    image: "/vehicles/airplane.jpg",
+  },
+  {
+    id: "7",
+    title: "scooter",
+    text: "skuter",
+    image: "/vehicles/scooter.jpg",
+  },
+];
+
 export const letterLearningData: CategoryInterface[] = [
   {
     categoryName: "Zwierzęta hodowlane",
@@ -52,9 +98,15 @@ export const letterLearningData: CategoryInterface[] = [
     categoryImage: "/categories/wildAnimals.jpg",
     categoryId: "wildAnimals",
   },
+  {
+    categoryName: "Pojazdy",
+    categoryImage: "/categories/vehicles.jpg",
+    categoryId: "vehicles",
+  },
 ];
 
 export const typeLearningQuestions: { [key: string]: QuestionInterface[] } = {
   stockAnimals: stockAnimals,
   wildAnimals: wildAnimals,
+  vehicles,
 };
