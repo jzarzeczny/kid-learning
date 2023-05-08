@@ -4,6 +4,7 @@ import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { SectionHeader } from "../SectionHeader/SectionHeader";
 
 import styles from "./CategorySelection.module.scss";
+import { sortCategoriesByGroup } from "utils";
 
 interface CategorySelectionProps {
   headerText: string;
@@ -20,14 +21,21 @@ export const CategorySelection: React.FC<CategorySelectionProps> = ({
     <section className={styles.categorySection}>
       <SectionHeader text={headerText} />
       <div className={styles.categoryContainer}>
-        {categoryData.map((category) => (
-          <CategoryCard
-            key={category.categoryName}
-            categoryName={category.categoryName}
-            categoryImage={category.categoryImage}
-            path={`${path}/${category.categoryId}`}
-          />
-        ))}
+        {Object.keys(sortCategoriesByGroup(categoryData)).map((key, index) => {
+          return (
+            <div className={styles.categoryWrapper} key={index}>
+              <span className={styles.categoryHeader}>{key}</span>
+              {sortCategoriesByGroup(categoryData)[key].map((category) => (
+                <CategoryCard
+                  key={category.categoryName}
+                  categoryName={category.categoryName}
+                  categoryImage={category.categoryImage}
+                  path={`${path}/${category.categoryId}`}
+                />
+              ))}
+            </div>
+          );
+        })}
       </div>
     </section>
   );

@@ -92,16 +92,19 @@ export const letterLearningData: CategoryInterface[] = [
     categoryName: "Zwierzęta hodowlane",
     categoryImage: "/categories/stockAnimals.jpg",
     categoryId: "stockAnimals",
+    group: "Zwierzęta",
   },
   {
     categoryName: "Zwierzęta dzikie",
     categoryImage: "/categories/wildAnimals.jpg",
     categoryId: "wildAnimals",
+    group: "Zwierzęta",
   },
   {
     categoryName: "Pojazdy",
     categoryImage: "/categories/vehicles.jpg",
     categoryId: "vehicles",
+    group: "Przedmioty",
   },
 ];
 

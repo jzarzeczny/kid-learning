@@ -7,7 +7,39 @@
 }
 
 .categoryContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: auto;
+  gap: 3rem;
   & > * + * {
     margin-top: 1rem;
+  }
+}
+
+.categoryWrapper {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgb(194, 174, 174);
+  border-radius: 12px;
+  width: 100%;
+
+  .categoryHeader {
+    position: absolute;
+    left: 3rem;
+    top: -1rem;
+    padding: 0.5rem;
+    background-color: #fff;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .categoryWrapper {
+    max-width: 768px;
+    padding: 2rem;
   }
 }
