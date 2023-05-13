@@ -1,4 +1,67 @@
+@use "../styles/colors.scss" as *;
+
 .heroSection {
   position: relative;
   height: 100vh;
+}
+
+.animation {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 300;
+  }
+
+  .first_line {
+    opacity: 0;
+    animation: appear 1s ease-in forwards;
+  }
+  .second_line {
+    margin-left: 3rem;
+    opacity: 0;
+    animation: appear 1s ease-in forwards 1s;
+    background: linear-gradient(
+      to right,
+      $blue-100,
+      $blue-300,
+      $blue-500,
+      $blue-700,
+      $blue-900
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.cta {
+  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translate(-50%);
+  border-radius: 50%;
+  border: 2px solid $blue-300;
+  cursor: pointer;
+}
+
+.gamesSection {
+  height: 100vh;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

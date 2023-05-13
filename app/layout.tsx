@@ -1,6 +1,6 @@
 import Header from "@components/Header/Header";
 import "@styles/main.scss";
-import Head from "./head";
+import Head from "./learnWriting/head";
 import styles from "./layout.module.scss";
 import { Lato } from "@next/font/google";
 
@@ -20,6 +20,9 @@ export default function RootLayout({
       <body className={lato.className}>
         <Header />
         <main className={styles.main}>{children}</main>
+        <footer className={styles.footer}>
+          Created by <a href="github.com/jzarzeczny">Jakub Zarzeczny</a>
+        </footer>
       </body>
     </html>
   );

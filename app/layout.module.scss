@@ -1,6 +1,14 @@
+@use "../styles/colors.scss" as *;
+
 .main {
   width: 100%;
   max-width: 1920px;
   height: 100%;
   overflow: hidden;
+}
+
+.footer {
+  padding: 1rem;
+  background-color: $black;
+  color: $white;
 }
