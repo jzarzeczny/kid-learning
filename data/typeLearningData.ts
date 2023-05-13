@@ -87,24 +87,6 @@ export const vehicles: QuestionInterface[] = [
   },
 ];
 
-export const letterLearningData: CategoryInterface[] = [
-  {
-    categoryName: "Zwierzęta hodowlane",
-    categoryImage: "/categories/stockAnimals.jpg",
-    categoryId: "stockAnimals",
-  },
-  {
-    categoryName: "Zwierzęta dzikie",
-    categoryImage: "/categories/wildAnimals.jpg",
-    categoryId: "wildAnimals",
-  },
-  {
-    categoryName: "Pojazdy",
-    categoryImage: "/categories/vehicles.jpg",
-    categoryId: "vehicles",
-  },
-];
-
 export const kitchenItems: QuestionInterface[] = [
   {
     id: "0",
@@ -116,7 +98,7 @@ export const kitchenItems: QuestionInterface[] = [
 
   {
     id: "1",
-    title: "fork",
+    title: "fork`",
     text: "widelec",
     image: "/kitchen/fork.jpg",
     multiSrcSet: true,
@@ -189,8 +171,31 @@ export const kitchenItems: QuestionInterface[] = [
     id: "11",
     title: "apron",
     text: "fartuch",
-    image: "/kitchen/apron",
+    image: "/kitchen/apron.jpg",
     multiSrcSet: true,
+  },
+];
+
+export const letterLearningData: CategoryInterface[] = [
+  {
+    categoryName: "Zwierzęta hodowlane",
+    categoryImage: "/categories/stockAnimalsCategory.jpg",
+    categoryId: "stockAnimals",
+  },
+  {
+    categoryName: "Zwierzęta dzikie",
+    categoryImage: "/categories/wildAnimalsCategory.jpg",
+    categoryId: "wildAnimals",
+  },
+  {
+    categoryName: "Pojazdy",
+    categoryImage: "/categories/vehiclesCategory.jpg",
+    categoryId: "vehicles",
+  },
+  {
+    categoryName: "Przedmioty w kuchni",
+    categoryImage: "/categories/kitchenCategory.jpg",
+    categoryId: "kitchen",
   },
 ];
 
@@ -198,4 +203,5 @@ export const typeLearningQuestions: { [key: string]: QuestionInterface[] } = {
   stockAnimals: stockAnimals,
   wildAnimals: wildAnimals,
   vehicles,
+  kitchenItems,
 };
