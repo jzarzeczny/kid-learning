@@ -203,5 +203,5 @@ export const typeLearningQuestions: { [key: string]: QuestionInterface[] } = {
   stockAnimals: stockAnimals,
   wildAnimals: wildAnimals,
   vehicles,
-  kitchenItems,
+  kitchen: kitchenItems,
 };
