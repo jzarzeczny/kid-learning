@@ -35,6 +35,7 @@ const LearnTypingQuestion: React.FC<QuestionProps> = ({ params }) => {
       <ImageContainer
         imageAlt={typeLearningQuestions[category][questionId].text}
         imageSrc={typeLearningQuestions[category][questionId].image}
+        // multiSrcSet={typeLearningQuestions[category][questionId].multiSrcSet}
       />
       <LettersContainer lettersData={lettersData} boxType="box" />
 
