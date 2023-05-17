@@ -15,6 +15,20 @@ import { useKeyHandlingHook } from "hooks/useKeyHandlingHook";
 
 const PATH = "learnTyping";
 
+export async function generateStaticParams() {
+  const parameters: { category: string; questionId: string }[] = [];
+  for (const [categoryName, questions] of Object.entries(
+    typeLearningQuestions
+  )) {
+    for (let i = 0; i < questions.length; i++) {
+      const questionId = questions[i].id;
+      parameters.push({ category: categoryName, questionId: questionId });
+    }
+  }
+
+  return parameters;
+}
+
 const LearnTypingQuestion: React.FC<QuestionProps> = ({ params }) => {
   const category = params.category;
   const questionId = parseInt(params.questionId);
@@ -35,7 +49,6 @@ const LearnTypingQuestion: React.FC<QuestionProps> = ({ params }) => {
       <ImageContainer
         imageAlt={typeLearningQuestions[category][questionId].text}
         imageSrc={typeLearningQuestions[category][questionId].image}
-        // multiSrcSet={typeLearningQuestions[category][questionId].multiSrcSet}
       />
       <LettersContainer lettersData={lettersData} boxType="box" />
 

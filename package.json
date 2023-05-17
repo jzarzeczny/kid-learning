@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"yarn typings:scss:generate:watch\"",
+    "dev": "concurrently \"next dev\" \"pnpm typings:scss:generate:watch\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
