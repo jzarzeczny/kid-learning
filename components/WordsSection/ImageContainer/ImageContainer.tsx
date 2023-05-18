@@ -24,8 +24,9 @@ export const ImageContainer: React.FC<ImageContainerProps> = ({
   return (
     <div className={styles.imageContainer}>
       <Image
-        fill
         style={{ objectFit: "cover" }}
+        height={800}
+        width={600}
         priority
         alt={imageAlt}
         src={imageSrc}

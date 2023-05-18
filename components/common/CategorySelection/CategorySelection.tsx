@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { CategoryInterface } from "@interfaces/CategoryInterface";
 import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { SectionHeader } from "../SectionHeader/SectionHeader";
