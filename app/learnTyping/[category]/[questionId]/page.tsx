@@ -25,11 +25,10 @@ export async function generateStaticParams() {
       parameters.push({ category: categoryName, questionId: questionId });
     }
   }
-
   return parameters;
 }
 
-const LearnTypingQuestion: React.FC<QuestionProps> = ({ params }) => {
+export default function LearnTypingQuestion({ params }: QuestionProps) {
   const category = params.category;
   const questionId = parseInt(params.questionId);
   const lettersData = useLettersData();
@@ -55,6 +54,4 @@ const LearnTypingQuestion: React.FC<QuestionProps> = ({ params }) => {
       <OpenKeyboardButton />
     </WordsSection>
   );
-};
-
-export default LearnTypingQuestion;
+}

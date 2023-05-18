@@ -2,8 +2,20 @@ import { CategoryInterface } from "@interfaces/CategoryInterface";
 import { QuestionInterface } from "@interfaces/LetterInterfaces";
 
 export const stockAnimals: QuestionInterface[] = [
-  { id: "1", title: "kot", text: "kot", image: "/cat.jpg" },
-  { id: "2", title: "pies", text: "pies", image: "/dog.jpg" },
+  {
+    id: "1",
+    title: "kot",
+    text: "kot",
+    image:
+      "https://images.unsplash.com/photo-1573865526739-10659fec78a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1015&q=80",
+  },
+  {
+    id: "2",
+    title: "pies",
+    text: "pies",
+    image:
+      "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3062&q=80",
+  },
   { id: "3", title: "krowa", text: "krowa", image: "/cow.jpg" },
   { id: "4", title: "owca", text: "owca", image: "/sheep.jpg" },
   { id: "5", title: "kura", text: "kura", image: "/chicken.jpg" },
