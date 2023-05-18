@@ -5,6 +5,15 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+      },
+    ],
+  },
   headers: async () => [
     {
       // list more extensions here if needed; these are all the resources in the `public` folder including the subfolders
