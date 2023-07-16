@@ -3,6 +3,7 @@ export interface QuestionInterface {
   title: string;
   text: string;
   image: string;
+  multiSrcSet?: boolean;
 }
 
 export interface LetterTrackerState {

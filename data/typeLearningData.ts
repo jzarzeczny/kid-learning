@@ -87,21 +87,115 @@ export const vehicles: QuestionInterface[] = [
   },
 ];
 
+export const kitchenItems: QuestionInterface[] = [
+  {
+    id: "0",
+    title: "plate",
+    text: "talerz",
+    image: "/kitchen/plate.jpg",
+    multiSrcSet: true,
+  },
+
+  {
+    id: "1",
+    title: "fork`",
+    text: "widelec",
+    image: "/kitchen/fork.jpg",
+    multiSrcSet: true,
+  },
+
+  // {
+  //   id: "2",
+  //   title: "pan",
+  //   text: "patelnia",
+  //   image: "/kitchen/pan.jpg",
+  //   multiSrcSet: true,
+  // },
+  // {
+  //   id: "3",
+  //   title: "strainer",
+  //   text: "sito",
+  //   image: "/kitchen/strainer.jpg",
+  //   multiSrcSet: true,
+  // },
+  // {
+  //   id: "4",
+  //   title: "pot",
+  //   text: "garnek",
+  //   image: "/kitchen/pot.jpg",
+  //   multiSrcSet: true,
+  // },
+  // {
+  //   id: "5",
+  //   title: "tray",
+  //   text: "taca",
+  //   image: "/kitchen/tray.jpg",
+  //   multiSrcSet: true,
+  // },
+  // {
+  //   id: "6",
+  //   title: "mug",
+  //   text: "kubek",
+  //   image: "/kitchen/mug.jpg",
+  //   multiSrcSet: true,
+  // },
+  // {
+  //   id: "7",
+  //   title: "grater",
+  //   text: "tarka",
+  //   image: "/kitchen/grater.jpg",
+  //   multiSrcSet: true,
+  // },
+  // {
+  //   id: "8",
+  //   title: "colander",
+  //   text: "cedzak",
+  //   image: "/kitchen/colander.jpg",
+  //   multiSrcSet: true,
+  // },
+  // {
+  //   id: "9",
+  //   title: "ladle",
+  //   text: "chochla",
+  //   image: "/kitchen/ladle.jpg",
+  //   multiSrcSet: true,
+  // },
+  // {
+  //   id: "10",
+  //   title: "straw",
+  //   text: "słomka",
+  //   image: "/kitchen/straw.jpg",
+  //   multiSrcSet: true,
+  // },
+  // {
+  //   id: "11",
+  //   title: "apron",
+  //   text: "fartuch",
+  //   image: "/kitchen/apron.jpg",
+  //   multiSrcSet: true,
+  // },
+];
+
 export const letterLearningData: CategoryInterface[] = [
   {
     categoryName: "Zwierzęta hodowlane",
-    categoryImage: "/categories/stockAnimals.jpg",
+    categoryImage: "/categories/stockAnimalsCategory.jpg",
     categoryId: "stockAnimals",
   },
   {
     categoryName: "Zwierzęta dzikie",
-    categoryImage: "/categories/wildAnimals.jpg",
+    categoryImage: "/categories/wildAnimalsCategory.jpg",
     categoryId: "wildAnimals",
   },
   {
     categoryName: "Pojazdy",
-    categoryImage: "/categories/vehicles.jpg",
+    categoryImage: "/categories/vehiclesCategory.jpg",
     categoryId: "vehicles",
+  },
+  {
+    categoryName: "Przedmioty w kuchni",
+    categoryImage: "/categories/kitchenCategory.jpg",
+    categoryId: "kitchen",
   },
 ];
 
@@ -109,4 +203,5 @@ export const typeLearningQuestions: { [key: string]: QuestionInterface[] } = {
   stockAnimals: stockAnimals,
   wildAnimals: wildAnimals,
   vehicles,
+  kitchen: kitchenItems,
 };

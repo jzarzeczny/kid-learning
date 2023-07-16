@@ -5,6 +5,7 @@ import styles from "./layout.module.scss";
 import { Lato } from "@next/font/google";
 
 const lato = Lato({
+  subsets: ["latin"],
   weight: ["300", "400", "700"],
 });
 

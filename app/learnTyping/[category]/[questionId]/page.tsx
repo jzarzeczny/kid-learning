@@ -15,7 +15,20 @@ import { useKeyHandlingHook } from "hooks/useKeyHandlingHook";
 
 const PATH = "learnTyping";
 
-const LearnTypingQuestion: React.FC<QuestionProps> = ({ params }) => {
+export async function generateStaticParams() {
+  const parameters: { category: string; questionId: string }[] = [];
+  for (const [categoryName, questions] of Object.entries(
+    typeLearningQuestions
+  )) {
+    for (let i = 0; i < questions.length; i++) {
+      const questionId = questions[i].id;
+      parameters.push({ category: categoryName, questionId: questionId });
+    }
+  }
+  return parameters;
+}
+
+export default function LearnTypingQuestion({ params }: QuestionProps) {
   const category = params.category;
   const questionId = parseInt(params.questionId);
   const lettersData = useLettersData();
@@ -41,6 +54,4 @@ const LearnTypingQuestion: React.FC<QuestionProps> = ({ params }) => {
       <OpenKeyboardButton />
     </WordsSection>
   );
-};
-
-export default LearnTypingQuestion;
+}

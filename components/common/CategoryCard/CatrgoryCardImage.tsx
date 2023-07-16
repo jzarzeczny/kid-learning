@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 interface CategoryCardImageProps {
@@ -15,7 +16,8 @@ export const CategoryCardImage: React.FC<CategoryCardImageProps> = ({
       <Image
         src={imageSrc}
         alt={imageAlt}
-        fill
+        width={500}
+        height={500}
         style={{ objectFit: "cover" }}
       />
     </div>
