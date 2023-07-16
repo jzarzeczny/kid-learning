@@ -10,7 +10,6 @@
     "typings:scss:generate:watch": "typed-scss-modules \"./**/*.module.scss\"  --watch --updateStaleOnly --ignore ./node_modules"
   },
   "dependencies": {
-    "@next/font": "^13.4.10",
     "@tabler/icons": "^2.25.0",
     "@types/node": "18.11.9",
     "@types/react": "^18.0.25",

@@ -7,6 +7,8 @@ import { QuestionInterface } from "@interfaces/LetterInterfaces";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+export const runtime = "edge";
+
 interface LearnReadingQuestionProps {
   params: {
     category: string;

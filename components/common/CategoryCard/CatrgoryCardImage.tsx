@@ -16,8 +16,7 @@ export const CategoryCardImage: React.FC<CategoryCardImageProps> = ({
       <Image
         src={imageSrc}
         alt={imageAlt}
-        width={500}
-        height={500}
+        fill
         style={{ objectFit: "cover" }}
       />
     </div>

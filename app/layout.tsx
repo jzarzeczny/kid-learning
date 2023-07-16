@@ -2,7 +2,7 @@ import Header from "@components/Header/Header";
 import "@styles/main.scss";
 import Head from "./head";
 import styles from "./layout.module.scss";
-import { Lato } from "@next/font/google";
+import { Lato } from "next/font/google";
 
 const lato = Lato({
   subsets: ["latin"],
