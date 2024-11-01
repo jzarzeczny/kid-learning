@@ -2,8 +2,6 @@ import { typeLearningQuestions } from "@data/typeLearningData";
 import { QuestionProps } from "@interfaces/QuestionPage";
 import TypingComponent from "@components/common/TypingComponent/TypingComponent";
 
-const PATH = "learnTyping";
-
 export async function generateStaticParams() {
   const parameters: { category: string; questionId: string }[] = [];
   for (const [categoryName, questions] of Object.entries(

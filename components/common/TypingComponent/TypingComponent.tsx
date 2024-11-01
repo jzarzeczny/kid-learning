@@ -34,8 +34,8 @@ export default function TypingComponent({
   return (
     <WordsSection>
       <ImageContainer
-        imageAlt={typeLearningQuestions[category][questionId].text}
-        imageSrc={typeLearningQuestions[category][questionId].image}
+        imageAlt={typeLearningQuestions[category][questionId]?.text}
+        imageSrc={typeLearningQuestions[category][questionId]?.image}
       />
       <LettersContainer lettersData={lettersData} boxType="box" />
 
