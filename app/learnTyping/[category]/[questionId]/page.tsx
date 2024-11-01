@@ -1,17 +1,6 @@
-"use client";
-
-import React from "react";
 import { typeLearningQuestions } from "@data/typeLearningData";
-import {
-  useLettersData,
-  useLettersDataDispatch,
-} from "@store/typeLearningStore";
-import { OpenKeyboardButton } from "@components/common/OpenKeyboard/OpenKeyboardButton";
-import { WordsSection } from "@components/WordsSection/WordsSection";
-import { ImageContainer } from "@components/WordsSection/ImageContainer/ImageContainer";
-import { LettersContainer } from "@components/WordsSection/LettersContainer/LettersContainer";
 import { QuestionProps } from "@interfaces/QuestionPage";
-import { useKeyHandlingHook } from "hooks/useKeyHandlingHook";
+import TypingComponent from "@components/common/TypingComponent/TypingComponent";
 
 const PATH = "learnTyping";
 
@@ -31,27 +20,6 @@ export async function generateStaticParams() {
 export default function LearnTypingQuestion({ params }: QuestionProps) {
   const category = params.category;
   const questionId = parseInt(params.questionId);
-  const lettersData = useLettersData();
-  const lettersDispatch = useLettersDataDispatch();
 
-  useKeyHandlingHook({
-    lettersDispatch: lettersDispatch,
-    data: typeLearningQuestions[category],
-    currentData: lettersData,
-    category,
-    questionId,
-    path: PATH,
-  });
-
-  return (
-    <WordsSection>
-      <ImageContainer
-        imageAlt={typeLearningQuestions[category][questionId].text}
-        imageSrc={typeLearningQuestions[category][questionId].image}
-      />
-      <LettersContainer lettersData={lettersData} boxType="box" />
-
-      <OpenKeyboardButton />
-    </WordsSection>
-  );
+  return <TypingComponent category={category} questionId={questionId} />;
 }
