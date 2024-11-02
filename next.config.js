@@ -11,6 +11,9 @@ const nextConfig = {
       },
     ],
   },
+  serverRuntimeConfig: {
+    PROJECT_ROOT: __dirname,
+  },
   headers: async () => [
     {
       // list more extensions here if needed; these are all the resources in the `public` folder including the subfolders
