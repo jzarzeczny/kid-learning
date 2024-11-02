@@ -10,23 +10,22 @@
     "typings:scss:generate:watch": "typed-scss-modules \"./**/*.module.scss\"  --watch --updateStaleOnly --ignore ./node_modules"
   },
   "dependencies": {
-    "@next/font": "^13.4.10",
-    "@tabler/icons": "^2.25.0",
-    "@types/node": "18.11.9",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "18.2.7",
-    "eslint": "8.27.0",
-    "eslint-config-next": "13.4.2",
-    "next": "13.4.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "sass": "^1.56.1",
-    "typescript": "5.1.6"
+    "@tabler/icons": "^3.19.0",
+    "@types/node": "22.7.4",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "18.3.0",
+    "eslint": "9.11.1",
+    "eslint-config-next": "14.2.13",
+    "next": "14.2.13",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "sass": "^1.79.4",
+    "typescript": "5.6.2"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0",
-    "stylelint-config-property-sort-order-smacss": "^9.0.0",
-    "stylelint-config-standard-scss": "^6.1.0",
-    "typed-scss-modules": "^7.0.1"
+    "concurrently": "^9.0.1",
+    "stylelint-config-property-sort-order-smacss": "^10.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "typed-scss-modules": "^8.0.1"
   }
 }
